@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0084ff;
+    font-family: sans-serif;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    background: #eee;
+    margin-top: 40px;
+}
+
+.container span {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    padding: 8px 20px;
+    background: #f00;
+    color: #fff;
+    overflow: hidden;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+}
+
+.scroll-left span {
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+}

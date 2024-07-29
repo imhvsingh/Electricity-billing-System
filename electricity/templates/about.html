@@ -1,0 +1,41 @@
+{% include 'usernavbar.html' %} {% load static %}
+
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>About</title>
+</head>
+<style>
+    body {
+        background: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+<body style="background-image: url('{% static 'images/elect_bg.jpg' %}')">
+    <div class="container mt-5" style="margin-top : 10%">
+        <h1 class="text-center" style="font-family: 'Arial Black'; color: rgb(7, 56, 124); margin-left: 5%;">About Us</h1>
+        <br><br><br>
+        <div class="row">
+            <div class="col-sm-12">
+                <center>
+                    <img src="{% static 'images/sailbvnl.jpeg' %}" width=800 height=200 class="img-responsive">
+                </center>
+            </div>
+        </div>
+        <br> <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <center>
+                    <h3 style="color: white ; background-color : rgb(7, 56, 124)">SBVNL (SAIL Bijli Vitran Nigam Limited) is the largest Distribution Company of Jharkhand State, incorporated primarily to carry out distribution of electricity to retail and bulk consumers in the state of Jharkhand.
+                    </h3>
+                </center>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

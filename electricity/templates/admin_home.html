@@ -1,0 +1,104 @@
+{% extends 'navbar1.html' %}
+{% load static %}
+{% block body1 %}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<style>
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+/* Rounded border */
+hr.rounded {
+  border-top: 8px solid lightblue;
+  border-radius: 5px;
+}
+
+.prjdiv:hover{
+transform:translateY(-10px)
+}
+div .container1{
+width:100%;
+background-color:white;
+border-radius:8px;
+}
+h2, h4{
+ padding:10Px;
+}
+</style>
+
+<!-- Start Show All Data through Box -->
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-sm-4 text-center mydiv">
+				<div class="container1">
+				  <div class="card-body">
+				    <h4 class="text-success">Total Customer</h4>
+					<h2 class="text-primary">{{cus}}</h2>
+				  </div>
+
+				  <div class="card-footer">
+				    <a href="{% url 'view_Customer' %}">View Details >>></a>
+				  </div>
+				</div>
+			</div>
+
+        	<div class="col-sm-4 text-center mydiv">
+				<div class="container1">
+				  <div class="card-body">
+					<h4 class="text-success">Total Connection</h4>
+					<h2 class="text-primary">{{conn}}</h2>
+				  </div>
+
+                  <div class="card-footer">
+				    <a href="{% url 'view_Connection' %}">View Details >>></a>
+				  </div>
+			    </div>
+			</div>
+
+			<div class="col-sm-4 text-center mydiv">
+				<div class="container1">
+  				   <div class="card-body">
+				     <h4 class="text-success">Total Bill</h4>
+					 <h2 class="text-primary">{{b}}</h2>
+				   </div>
+
+				   <div class="card-footer">
+				     <a href="{% url 'view_Bill' %}">View Details >>></a>
+				   </div>
+			    </div>
+			</div>
+
+		</div>
+    </div>
+	<!-- End Show All Data through Box -->
+
+<!-- Start Footer -->
+	<!--<footer class="site-footer">
+      <div class="container">
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p style = "font-size : 30pt ; color : #FF0000 ; font-weight : bold">
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All Rights Reserved <span style = "color : brown">|</span> <span style = "color : #006400">This website is made with <i class="fas fa-heart icon-heart text-warning" aria-hidden="true"></i> by </span><a class= "glow" href="#" target="_blank" >ABC XYZ</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>-->
+{% endblock %}

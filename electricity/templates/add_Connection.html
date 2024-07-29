@@ -1,0 +1,121 @@
+{% extends 'navbar1.html' %} {% load static %} {% block body1 %} {% if error == "no" %}
+<script>
+    alert('New Connection has been Added...');
+    window.location = ('{% url '
+        view_Connection ' %}');
+</script>
+{% endif %} {% if error == "yes" %}
+<script>
+    alert('Something went wrong, Try Again');
+</script>
+{% endif %}
+
+<div class="card shadow m-5">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange">Add New Connection</h5>
+
+        <div class="container-fluid">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-row">
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>10 Digit Connection ID</label>
+                            <input type="number" name="connectionid" class="form-control" placeholder="Enter 10 digit Connection ID" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Customer Name</label>
+                            <select name="customerid" class="form-control">
+					{% for i in customer1 %}
+                        <option value="{{i.id}}">{{i.user.first_name}} {{i.user.last_name}} [{{i.user.username}}]</option>
+					{% endfor %}
+			   </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Connection Type</label>
+                            <select name="connectiontype" class="form-control">
+                <option selected>Residential</option>
+                <option>Commercial</option>
+               </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Connection Start Date</label>
+                            <input type="date" name="connectionstartdate" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Occupation</label>
+                            <input type="text" name="occupation" class="form-control" placeholder="Enter Occupation" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Load</label>
+                            <input type="number" name="connectionload" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Plot No.</label>
+                            <input type="number" name="plotno" class="form-control" placeholder="Enter Plot No." required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="city" class="form-control" placeholder="Enter city" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Pincode</label>
+                            <input type="number" name="pincode" class="form-control" placeholder="Enter pincode" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Address</label>
+                            <textarea name="address" class="form-control" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" name="state" class="form-control" placeholder="Enter State" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea name="description" class="form-control" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <hr>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

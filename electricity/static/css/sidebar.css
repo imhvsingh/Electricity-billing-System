@@ -1,0 +1,42 @@
+.sidebar-title {
+    letter-spacing: 0.1em;
+    color: #aaa;
+}
+
+body {
+    background: linear-gradient(-135deg, #4bd954, #ffff3b);
+    min-height: 100vh;
+}
+
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 0.4s;
+}
+
+.page-content {
+    width: calc(100%-17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+}
+
+#content.active {
+    width: 100%;
+    margin: 0;
+}
+
+#sidebar.active {
+    margin-left: -17rem;
+}
+
+.nav-link {
+    font-weight: bold;
+}
+
+.fa-power-off {
+    color: rgb(255, 0, 0);
+}

@@ -1,0 +1,53 @@
+{% extends 'navbar1.html' %}
+{% load static %}
+{% block body1 %}
+
+
+ <div class="card shadow mt-5">
+    <div class="card-body">
+		<h5 class="p-2" style="border-bottom: 2px solid orange">View All Connection</h5>
+     <div class="container mt-5">
+		<h1 class="text-success text-center"></h1>
+
+		<br>
+		<table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
+			<thead style="background-color: #9e9e9e">
+				<tr>
+				    <th class="text-danger">Conn. Id</th>
+					<th class="text-danger">C.Id</th>
+					<th class="text-danger">Conn. Type</th>
+					<th class="text-danger">Connection Start Date</th>
+					<th class="text-danger">Occupation</th>
+					<th class="text-danger">Load</th>
+					<th class="text-danger">Plot No.</th>
+					<th class="text-danger">City</th>
+					<th class="text-danger">Pincode</th>
+					<th class="text-danger">Address</th>
+					<th class="text-danger">State</th>
+					<th class="text-danger">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+             {% for i in connection %}
+			<tr>
+				<td>{{i.connectionid}}</td>
+				<td>{{i.customer.id}}</td>
+				<td>{{i.connectiontype}}</td>
+				<td>{{i.connectionstartdate}}</td>
+				<td>{{i.occupation}}</td>
+				<td>{{i.connectionload}}</td>
+				<td>{{i.plotno}}</td>
+				<td>{{i.city}}</td>
+				<td>{{i.pincode}}</td>
+				<td>{{i.address}}</td>
+				<td>{{i.state}}</td>
+				<td><a href="{% url 'edit_Connection' i.id %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> |
+					<a href="{% url 'delete_Connection' i.id %}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this Connection Details ?')"><i class="fas fa-trash-alt"></i></a></td>
+            </tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	</div>
+ </div>
+{% endblock %}

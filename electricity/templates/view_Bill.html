@@ -1,0 +1,49 @@
+{% extends 'navbar1.html' %}
+{% load static %}
+{% block body1 %}
+
+<div class="card shadow mt-5">
+    <div class="card-body">
+		<h5 class="p-2" style="border-bottom: 2px solid orange">View All Bill</h5>
+      <div class="container mt-5">
+		<h1 class="text-success text-center"></h1>
+
+		<br>
+		<table id="example" class="table table-striped table-bordered" style="width:100%">
+			<thead style="background-color: #9e9e9e">
+				<tr>
+					<th class="text-danger">Bill ID</th>
+					<th class="text-danger">Connection ID</th>
+					<th class="text-danger">Bill For Month</th>
+					<th class="text-danger">Current Reading</th>
+					<th class="text-danger">Previous Reading</th>
+					<th class="text-danger">Total Units</th>
+					<th class="text-danger">Charge Per Unit</th>
+					<th class="text-danger">Final Amount</th>
+					<th class="text-danger">Due_Date</th>
+					<th class="text-danger">Status</th>
+					<th class="text-danger">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+              {% for i in bill %}
+			  <tr>
+				  <td>{{forloop.counter}}</td>
+				  <td>{{i.connection.connectionid}}</td>
+				  <td>{{i.billformonth}}</td>
+				  <td>{{i.currentreading}}</td>
+				  <td>{{i.previousreading}}</td>
+				  <td>{{i.totalunit}}</td>
+				  <td>{{i.chargeperunit}}</td>
+				  <td>{{i.finalamount}}</td>
+				  <td>{{i.duedate}}</td>
+				  <td>{{i.status}}</td>
+				  <td><a href="{% url 'delete_Bill' i.id %}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this Connection Details ?')">Delete</a></td>
+			  </tr>
+			  {% endfor %}
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+{% endblock %}

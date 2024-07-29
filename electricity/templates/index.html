@@ -1,0 +1,81 @@
+{% include 'usernavbar.html' %} {% load static %}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Billing - Index Page</title>
+    <!-- <link rel="stylesheet" href="style2.css"> -->
+    <style>
+        body {
+            background: no-repeat;
+            background-size: cover;
+        }
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+        /* body {
+            background: #0084ff;
+            font-family: sans-serif;
+            width: 80%;
+            margin: 0 auto;
+        } */
+        
+        .scrolling-text-container {
+            display: flex;
+            align-items: center;
+            background: #ffb9b9;
+            /* margin-top: 0px; */
+        }
+        
+        .scrolling-text-container span {
+            position: relative;
+            display: inline-block;
+            flex-shrink: 0;
+            padding: 5px 15px;
+            background: #f00;
+            color: #fff;
+            /* overflow: hidden; */
+            clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<br><br><br>
+
+<!-- <style>
+    body {
+        background-color: #ffa43c;
+    }
+</style> -->
+
+<body style="background-image: url('{% static 'images/elect_indi.jpeg' %}')">
+    <!-- <br><br><br><br> -->
+    <div class="scrolling-text-container">
+        <span>Notices</span>
+        <marquee behavior="" direction="right">Registration for the new customers are going on--CLICK HERE</marquee>
+    </div>
+    <div class="container mt-5">
+        <h1 class="text-center "></h1>
+        <div class="col-sm-8 m-auto d-block">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label><b>Enter Consumer Number</b></label>
+                            <input type="text" name="searchdata" class="form-control" placeholder="10 Digit Consumer Number" required>
+                        </div><br>
+                        <div class="form-group">
+                            <input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

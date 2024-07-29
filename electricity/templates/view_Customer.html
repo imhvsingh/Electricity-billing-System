@@ -1,0 +1,41 @@
+{% extends 'navbar1.html' %}
+{% load static %}
+{% block body1 %}
+
+<div class="card shadow m-5">
+    <div class="card-body">
+		<h5 class="p-2" style="border-bottom: 2px solid orange">All Customers</h5>
+     <div class="container mt-5">
+		<h1 class="text-success text-center"></h1>
+
+		<table id="example" class="table table-striped table-bordered" style="width:100%">
+			<thead style="background-color: #9e9e9e">
+				<tr>
+					<th class="text-danger">Customer Name</th>
+					<th class="text-danger">Contact</th>
+					<th class="text-danger">Email Id</th>
+					<th class="text-danger">Address</th>
+					<th class="text-danger">City</th>
+					<th class="text-danger">State</th>
+					<th class="text-danger">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+              {% for i in customer %}
+			  <tr>
+				  <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+				  <td>{{i.contact}}</td>
+				  <td>{{i.user.username}}</td>
+				  <td>{{i.address}}</td>
+				  <td>{{i.city}}</td>
+				  <td>{{i.state}}</td>
+				  <td><a href="{% url 'edit_Customer' i.id %}" class="btn btn-primary"><i class="fas fa-edit"></i></a> |
+					  <a href="{% url 'delete_Customer' i.id %}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this Customer Details ?')"><i class="fas fa-trash-alt"></i></a></td>
+			  </tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+{% endblock %}

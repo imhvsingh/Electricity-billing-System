@@ -1,0 +1,48 @@
+{% load static %}
+
+{% if error == "no" %}
+     <script>
+	   alert('Logged In Successfully');
+       window.location=('{% url 'admin_home' %}');
+     </script>
+{% endif %}
+
+{% if error == "yes" %}
+     <script>
+	    alert('Something went wrong, Try Again');
+     </script>
+{% endif %}
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Admin Login Form</title>
+      <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title">
+           Admin Login
+         </div>
+         <form method="post">
+            {% csrf_token %}
+            <div class="field">
+               <input type="text" name="uname" required>
+               <label>Username</label>
+            </div>
+            <div class="field">
+               <input type="password" name="pwd" required>
+               <label>Password</label>
+            </div>
+
+            <div class="field">
+               <input type="submit" value="Login">
+            </div>
+            <div class="signup-link">
+                     <a href="{% url 'index' %}">Back to Home</a>
+            </div>
+
+         </form>
+      </div>
+   </body>
+</html>

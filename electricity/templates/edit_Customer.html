@@ -1,0 +1,91 @@
+{% extends 'navbar1.html' %}
+{% load static %}
+{% block body1 %}
+
+{% if error %}
+     <script>
+	   alert('Customer data has been Updated');
+	   window.location=('{% url 'view_Customer' %}');
+     </script>
+{% endif %}
+
+
+<div class="card shadow m-5">
+    <div class="card-body">
+      <h5 class="p-2" style="border-bottom: 2px solid orange">Edit Customer</h5>
+
+      <div class="container-fluid">
+        <form method="post" onsubmit="return MobileValidate()">
+            {% csrf_token %}
+          <div class="form-row">
+
+            <div class="col-sm-6">
+             <div class="form-group">
+               <label>First Name</label>
+               <input type="text" name="firstname" class="form-control" value="{{customer.user.first_name}}">
+             </div>
+            </div>
+             <div class="col-sm-6">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="lastname" class="form-control" value="{{customer.user.last_name}}">
+              </div>
+            </div>
+
+           <div class="col-sm-12">
+             <div class="form-group">
+               <label>Contact</label>
+               <input type="number" name="contact" class="form-control" value="{{customer.contact}}">
+             </div>
+            </div>
+
+            <div class="col-sm-12">
+             <div class="form-group">
+               <label>Email Id</label>
+               <input type="email" name="email" class="form-control" value="{{customer.user.username}}" readonly>
+             </div>
+            </div>
+
+            <div class="col-sm-12">
+             <div class="form-group">
+               <label>Address</label>
+               <textarea name="address" class="form-control" rows="2">{{customer.address}}</textarea>
+
+             </div>
+            </div>
+
+            <div class="col-sm-12">
+             <div class="form-group">
+               <label>City</label>
+               <input type="text" name="city" class="form-control" value="{{customer.city}}">
+             </div>
+            </div>
+
+            <div class="col-sm-12">
+             <div class="form-group">
+               <label>State</label>
+               <input type="text" name="state" class="form-control" value="{{customer.state}}">
+             </div>
+            </div>
+          </div>
+          <hr>
+        <input type="submit" value="Update" class="btn btn-primary">
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+		function MobileValidate() {
+			var contact = document.getElementById("contact").value;
+			var contactTenDigit = /^\d{10}$/;
+			if (contact != '') {
+				if (contact.match(contactTenDigit)) {
+					return true;
+				} else {
+					alert("Enter Ten Digit Mobile Number");
+					return false;
+				}
+			}
+		}
+</script>
+{% endblock %}
